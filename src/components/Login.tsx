@@ -3,9 +3,7 @@ import { LoginProps } from "../types";
 
 const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const [idInstance, setIdInstance] = useState("");
-  const [apiTokenInstance, setApiTokenInstance] = useState(
-    "",
-  );
+  const [apiTokenInstance, setApiTokenInstance] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

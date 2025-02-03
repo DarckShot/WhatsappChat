@@ -20,10 +20,12 @@ const useChat = (idInstance: string, apiTokenInstance: string) => {
       setNewMessage("");
     } catch (error) {
       console.error("Ошибка отправки сообщения:", error);
-      setMessages([
+
+      setMessages((prevMessages) => [
+        ...prevMessages,
         {
-          text: newMessage
-            ? "Ошибка: авторизационные данные не корректны"
+          text: !newMessage
+            ? "Ошибка: авторизационные данные или номер телефона не корректны"
             : "Ошибка: нет текста сообщения",
           sender: "me",
           id: Date.now(),
@@ -70,6 +72,15 @@ const useChat = (idInstance: string, apiTokenInstance: string) => {
         }
       } catch (error) {
         console.error("Ошибка получения сообщений:", error);
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          {
+            text: "Ошибка: авторизационные данные или номер телефона не корректны",
+            sender: "me",
+            id: Date.now(),
+          },
+        ]);
+        isActive = false;
       }
 
       setTimeout(receiveMessages, 1000);
