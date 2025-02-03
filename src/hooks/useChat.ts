@@ -5,7 +5,7 @@ import { Message as MessageType } from "../types";
 const useChat = (idInstance: string, apiTokenInstance: string) => {
   const [messages, setMessages] = useState<MessageType[]>([]);
   const [newMessage, setNewMessage] = useState("");
-  const [recipient, setRecipient] = useState("79124990491");
+  const [recipient, setRecipient] = useState("");
 
   const sendMessage = async () => {
     const url = `https://api.green-api.com/waInstance${idInstance}/SendMessage/${apiTokenInstance}`;

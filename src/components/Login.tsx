@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { LoginProps } from "../types";
 
 const Login: React.FC<LoginProps> = ({ onLogin }) => {
-  const [idInstance, setIdInstance] = useState("1103185513");
+  const [idInstance, setIdInstance] = useState("");
   const [apiTokenInstance, setApiTokenInstance] = useState(
-    "93b86d976bd84833b81f91ae9fdcffee760a9ddbdcc041ba80",
+    "",
   );
 
   const handleSubmit = (e: React.FormEvent) => {
